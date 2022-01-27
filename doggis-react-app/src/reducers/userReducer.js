@@ -3,8 +3,8 @@ import types from "../actionsCreators/actionTypes"
 const user = JSON.parse(localStorage.getItem('user'))
 
 const initialState = user
-  ? { registering: false, loggedIn: true, user }
-  : { registering: false, loggedIn: false, user: null }
+  ? { registering: false, loggedIn: true, userData: user }
+  : { registering: false, loggedIn: false, userData: null }
 
 const userReducer = (state = initialState, action) => {
   const { type, data } = action
@@ -31,19 +31,19 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoggedIn: true,
-        user: data.user,
+        userData: data.userData,
       }
     case types.LOGIN_FAIL:
       return {
         ...state,
         isLoggedIn: false,
-        user: null,
+        userData: null,
       }
     case types.LOGOUT:
       return {
         ...state,
         isLoggedIn: false,
-        user: null,
+        userData: null,
       }
     default:
       return state;

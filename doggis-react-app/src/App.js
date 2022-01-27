@@ -17,7 +17,6 @@ const App = () => {
   useEffect(() => {
     history.listen((location) => {
       dispatch(clearNotification())
-      console.log("history", location)
     })
   }, [dispatch])
 
