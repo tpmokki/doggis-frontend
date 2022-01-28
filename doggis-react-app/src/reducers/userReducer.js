@@ -1,52 +1,28 @@
-import types from "../actionsCreators/actionTypes"
+import types from '../actionsCreators/actionTypes'
 
-const user = JSON.parse(localStorage.getItem('user'))
-
-const initialState = user
-  ? { registering: false, loggedIn: true, userData: user }
-  : { registering: false, loggedIn: false, userData: null }
+const initialState = { loading: true, userData: null }
 
 const userReducer = (state = initialState, action) => {
   const { type, data } = action
 
   switch (type) {
-    case types.REGISTER_REQUEST:
+    case types.GET_USER_REQUEST:
       return { 
         ...state, 
-        registering: true 
+        loading: true 
       }
-    case types.REGISTER_SUCCESS:
+    case types.GET_USER_SUCCESS:
       return {
-        ...state,
-        isLoggedIn: false,
-        registering: false
-      }
-    case types.REGISTER_FAIL:
+        loading: false,
+        userData: data
+      }      
+    case types.GET_USER_FAIL:
       return {
-        ...state,
-        isLoggedIn: false,
-        registering: false
-      }
-    case types.LOGIN_SUCCESS:
-      return {
-        ...state,
-        isLoggedIn: true,
-        userData: data.userData,
-      }
-    case types.LOGIN_FAIL:
-      return {
-        ...state,
-        isLoggedIn: false,
-        userData: null,
-      }
-    case types.LOGOUT:
-      return {
-        ...state,
-        isLoggedIn: false,
-        userData: null,
+        loading: false,
+        userData: null
       }
     default:
-      return state;
+      return state
   }
 }
 

@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import types from "../../actionsCreators/actionTypes"
 import { invalidEmail, invalidName, invalidPhone, invalidUsername, invalidPassword } from '../../utils/validations'
-import { register } from '../../actionsCreators/userActions'
+import { register } from '../../actionsCreators/authActions'
 import { useNavigate, Link } from "react-router-dom"
 import { Notification } from "../Notification"
 

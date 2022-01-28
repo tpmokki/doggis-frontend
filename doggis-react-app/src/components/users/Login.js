@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Container } from "react-bootstrap"
 import { Link, useNavigate } from "react-router-dom"
 import { Notification } from "../Notification"
-import { login, logout } from '../../actionsCreators/userActions'
+import { login, logout } from '../../actionsCreators/authActions'
 import { useDispatch } from "react-redux"
 
 const Login = () => {
