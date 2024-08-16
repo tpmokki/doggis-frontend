@@ -11,6 +11,12 @@ import { Home } from './components/Home'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
+const UnusedComponent = () => {
+  return (
+    <div>This is unused, so remove please</div>
+  )
+}
+
 const App = () => {
   const dispatch = useDispatch()
 
